@@ -15,32 +15,31 @@ import { UpdateMovieDto } from 'src/dto/update-movie-dto';
 
 @Controller('movies') // entry URL
 export class MoviesController {
-
-  constructor(private readonly MoviesService:MoviesService) {}
+  constructor(private readonly MoviesService: MoviesService) {}
 
   @Get()
-  getAll():Movie[] {
+  getAll(): Movie[] {
     return this.MoviesService.getAll();
   }
 
-  @Get('/:id')
-  getOne(@Param('id') movieId: number):Movie {
+  @Get(':id')
+  getOne(@Param('id') movieId: number): Movie {
     return this.MoviesService.getOne(movieId);
   }
 
   @Post()
-  create(@Body() movieData:CreateMovieDto) {
-    movieData
-    return this.MoviesService.create(movieData)
+  create(@Body() movieData: CreateMovieDto) {
+    movieData;
+    return this.MoviesService.create(movieData);
   }
 
-  @Delete(':/id')
+  @Delete(':id')
   remove(@Param('id') movieId: number) {
     return this.MoviesService.deleteOne(movieId);
   }
 
-  @Patch('/:id')
-  update(@Param('id') movieId: number, @Body() updateData:UpdateMovieDto) {
+  @Patch(':id')
+  update(@Param('id') movieId: number, @Body() updateData: UpdateMovieDto) {
     return this.MoviesService.update(movieId, updateData);
   }
 }
