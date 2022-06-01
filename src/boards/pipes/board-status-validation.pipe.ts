@@ -1,7 +1,7 @@
 // custom pipe
 
 import { ArgumentMetadata, BadRequestException, PipeTransform } from '@nestjs/common';
-import { BoardStatus } from '../entity/board.entity';
+import { BoardStatus } from '../board-status.enum';
 
 export class BoardStatusValidtaionPipe implements PipeTransform {
 

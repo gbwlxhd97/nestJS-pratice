@@ -1,11 +1,17 @@
-export interface Board {
-  id: string;
-  title: string;
-  description: string;
-  status: BoardStatus;
-}
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BoardStatus } from '../board-status.enum';
 
-export enum BoardStatus {
-  PUBLIC = 'PUBLIC',
-  PRIVATE = 'PRIVATE',
+@Entity()
+export class Board extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id:number;
+
+  @Column()
+  title:string;
+
+  @Column()
+  description: string;
+
+  @Column()
+  status: BoardStatus
 }
