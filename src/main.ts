@@ -12,6 +12,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  app.enableCors();
   setupSwagger(app);
   await app.listen(3000);
 }
